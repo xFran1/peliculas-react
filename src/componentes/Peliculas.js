@@ -1,5 +1,5 @@
 import {useEffect , useState} from 'react'
-
+import Buscador from './Buscador';
 
 function Peliculas(){
     const [isLoading, setIsLoading] = useState(true);
@@ -32,15 +32,18 @@ function Peliculas(){
 
 
             return plsData!==null ? (
+                <div class="bg-gradient-to-r from-red-300	 to-blue-500">
+                    <Buscador />
                 
-                <div className="grid grid-cols-4 gap-y-5 ">
+                <div className="grid grid-cols-4 w-full gap-y-10 justify-items-center ">
 
                  {plsData.results.map((item,index)=>
-                    <div className="bg-red-400 w-48 text-center" key={index}>
+                    <div className="bg-red-400 w-48 text-center hover:scale-90 transition-all duration-300" key={index}>
                         <h1 >{item.title}</h1>
                         <div><img src= {`http://image.tmdb.org/t/p/w500${item.poster_path}`} /></div>
                         </div>
                 )}
+                </div>
                 </div>
 
 
